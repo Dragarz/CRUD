@@ -17,8 +17,22 @@ public class UserServiceImp implements UserService{
 
     @Override
     public List<User> listUsers() {
-        var users = userDao.listUsers();
-        return users;
+        return userDao.listUsers();
+    }
+
+    @Override
+    public void deleteUser(long userId) {
+        userDao.deleteUser(userId);
+    }
+
+    @Override
+    public void addUser(String name, String lastName, String email) {
+        userDao.add(new User(name, lastName, email));
+    }
+
+    @Override
+    public void updateUser(long id, String name, String lastName, String email) {
+        userDao.updateUser(id, name, lastName, email);
     }
 
 }
